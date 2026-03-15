@@ -10,6 +10,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 禁止使用非标准编译器扩展
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# 如果当前使用的编译器是微软的 MSVC，强迫它源文件和执行字符集全部使用 UTF-8
+if (MSVC)
+    add_compile_options(/utf-8)
+endif()
+
 # 第三方库
 set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/third_party/SDL3" ${CMAKE_PREFIX_PATH})
 
